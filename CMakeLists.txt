@@ -25,7 +25,6 @@ find_package(catkin REQUIRED COMPONENTS
   tf2_msgs
 
   sensor_msgs
-  accessrobot_vision
 
   dock_charge_sm_msgs
   laser_servoing_msgs
@@ -49,20 +48,19 @@ add_message_files(
 )
 
 ## Generate services in the 'srv' folder
- add_service_files(
-   FILES
-   GoalId.srv
-   MoveCommandSrv.srv
-   Distance3D.srv
-   TaskSrv.srv
- )
+#add_service_files(
+#   FILES
+#   GoalId.srv
+#   MoveCommandSrv.srv
+#   Distance3D.srv
+#   TaskSrv.srv
+#)
 
  generate_messages(
    DEPENDENCIES
    std_msgs  # Or other packages containing msgs
    geometry_msgs 
    actionlib
-   accessrobot_vision
 )
 
 ################################################
@@ -76,7 +74,7 @@ add_message_files(
 
 catkin_package(
   INCLUDE_DIRS
-    include
+#   include
   LIBRARIES 
     ${PROJECT_NAME}
   CATKIN_DEPENDS 
@@ -102,15 +100,15 @@ include_directories(SYSTEM ${EIGEN3_INCLUDE_DIRS})
 ##  Class config  ##
 ####################
 
-add_library(${PROJECT_NAME}
-   src/navigation_manager.cpp
-   src/poi_file_handler.cpp
-   src/mod_poi_list_handler.cpp
-)
+#add_library(${PROJECT_NAME}
+#   src/navigation_manager.cpp
+#   src/poi_file_handler.cpp
+#   src/mod_poi_list_handler.cpp
+#)
 
-target_link_libraries(${PROJECT_NAME}
-  ${catkin_LIBRARIES}
-)
+#target_link_libraries(${PROJECT_NAME}
+#  ${catkin_LIBRARIES}
+#)
 
 
 
@@ -119,14 +117,14 @@ target_link_libraries(${PROJECT_NAME}
 ##  Demos config  ##
 ####################
 
-add_executable(navigation_test demos/navigation_test.cpp)
+#add_executable(navigation_test demos/navigation_test.cpp)
 
-add_dependencies(navigation_test ${PROJECT_NAME}_generate_messages ${catkin_EXPORTED_TARGETS})
+#add_dependencies(navigation_test ${PROJECT_NAME}_generate_messages ${catkin_EXPORTED_TARGETS})
 
-target_link_libraries(navigation_test
-${catkin_LIBRARIES}
-${PROJECT_NAME}
-)
+#target_link_libraries(navigation_test
+#${catkin_LIBRARIES}
+#${PROJECT_NAME}
+#)
 
 
 ######################
@@ -145,25 +143,25 @@ ${PROJECT_NAME}
 # )
 
 # navigation node
-add_executable(navigation_node scripts/navigation_node.cpp)
+#add_executable(navigation_node scripts/navigation_node.cpp)
 
-add_dependencies(navigation_node ${catkin_EXPORTED_TARGETS})
+#add_dependencies(navigation_node ${catkin_EXPORTED_TARGETS})
 
-target_link_libraries(navigation_node
-${catkin_LIBRARIES}
-${PROJECT_NAME}
-)
+#target_link_libraries(navigation_node
+#${catkin_LIBRARIES}
+#${PROJECT_NAME}
+#)
 
 
 # mod poi list node
-add_executable(mod_poi_list_node src/mod_poi_list_node.cpp)
+#add_executable(mod_poi_list_node src/mod_poi_list_node.cpp)
 
-add_dependencies(mod_poi_list_node ${catkin_EXPORTED_TARGETS})
+#add_dependencies(mod_poi_list_node ${catkin_EXPORTED_TARGETS})
 
-target_link_libraries(mod_poi_list_node
-${catkin_LIBRARIES}
-${PROJECT_NAME}
-)
+#target_link_libraries(mod_poi_list_node
+#${catkin_LIBRARIES}
+#${PROJECT_NAME}
+#)
 
 
 
@@ -171,12 +169,12 @@ ${PROJECT_NAME}
 ## Install ##
 #############
 
-install(
-  TARGETS ${PROJECT_NAME}
-  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
-)
+#install(
+#  TARGETS ${PROJECT_NAME}
+#  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+#  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+#  RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
+#)
 
 install(
   DIRECTORY include/${PROJECT_NAME}/
