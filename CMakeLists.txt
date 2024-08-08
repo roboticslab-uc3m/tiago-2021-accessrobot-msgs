@@ -18,6 +18,7 @@ add_message_files(
 
 ## Generate services in the 'srv' folder
 add_service_files(
+   DIRECTORY srv
    FILES
    DecodedDetectionSrv.srv
 )
@@ -25,7 +26,7 @@ add_service_files(
 generate_messages(
    DEPENDENCIES
    std_msgs  # Or other packages containing msgs
-   geometry_msgs 
+   geometry_msgs
    #actionlib
 )
 

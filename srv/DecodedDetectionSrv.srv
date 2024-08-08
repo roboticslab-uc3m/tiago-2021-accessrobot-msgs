@@ -1,2 +1,2 @@
 ---
-accessrobot_vision/decodedDetectionMsg[] item_vector
+accessrobot_msgs/decodedDetectionMsg[] item_vector
