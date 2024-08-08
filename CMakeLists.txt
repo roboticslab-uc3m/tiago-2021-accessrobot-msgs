@@ -13,16 +13,14 @@ add_message_files(
   FILES
   tiago_state.msg
   poi_list.msg
+  decodedDetectionMsg.msg
 )
 
 ## Generate services in the 'srv' folder
-#add_service_files(
-#   FILES
-#   GoalId.srv
-#   MoveCommandSrv.srv
-#   Distance3D.srv
-#   TaskSrv.srv
-#)
+add_service_files(
+   FILES
+   DecodedDetectionSrv.srv
+)
 
 generate_messages(
    DEPENDENCIES
